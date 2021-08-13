@@ -1,0 +1,53 @@
+{
+	"info": {
+		"_postman_id": "91f28bff-7cbf-4972-8487-78da47dba042",
+		"name": "music shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "tasks/unit1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/product/tracks/unit1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"product",
+						"tracks",
+						"unit1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tasks/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/product/tracks/all/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"product",
+						"tracks",
+						"all",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

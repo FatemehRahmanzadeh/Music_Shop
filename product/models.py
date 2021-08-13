@@ -10,6 +10,7 @@ class Artist(models.Model):
 class Album(models.Model):
     title = models.CharField(max_length=160)
     artist = models.ForeignKey(Artist, on_delete=models.PROTECT)
+    image = models.ImageField(upload_to='album/', blank=True, null=True)
 
 
 class MediaType(models.Model):
@@ -29,4 +30,3 @@ class Track(models.Model):
     milliseconds = models.IntegerField()
     bytes = models.IntegerField()
     unit_price = models.IntegerField()
-

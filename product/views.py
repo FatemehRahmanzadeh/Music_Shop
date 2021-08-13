@@ -2,6 +2,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
+from product import serializers
 from product.models import Track
 from product.serializers import TrackSerializer
 
@@ -18,3 +19,16 @@ class TrackView(GenericViewSet):
         qs = Track.objects.all()
         qs_ser = TrackSerializer(qs, many=True)
         return Response(data={'result': qs_ser.data}, status=200)
+
+
+class AlbumView(GenericViewSet):
+    @action(methods=['POST'],
+            detail=False, url_name='albumImage',
+            url_path='albumImage',
+            serializer_class=serializers.AlbumSerializer)
+    def create_album(self, request, *args, **kwargs):
+        in_serializer = serializers.AlbumSerializer(data=request.data)
+        in_serializer.is_valid(raise_exception=True)
+        in_serializer.save()
+
+        return Response(data={"meta": {"success": True, "code": 201, }, "result": in_serializer.data, })
